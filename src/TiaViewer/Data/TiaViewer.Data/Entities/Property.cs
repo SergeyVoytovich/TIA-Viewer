@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 namespace TiaViewer.Data.Entities
 {
     [Serializable]
-    internal class Property
+    internal class PropertyEntity
     {
         [XmlElement(ElementName = "key")]
         public string Key { get; set; }

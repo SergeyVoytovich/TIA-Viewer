@@ -5,9 +5,9 @@ namespace TiaViewer.Data.Entities
 {
     [Serializable]
 
-    internal class TiaSelectionTool
+    internal class TiaSelectionToolEntity
     {
         [XmlElement(ElementName = "business")]
-        public Business Business { get; set; }
+        public BusinessEntity Business { get; set; }
     }
 }

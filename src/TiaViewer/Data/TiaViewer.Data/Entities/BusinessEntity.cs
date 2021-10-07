@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 
 namespace TiaViewer.Data.Entities
 {
     [Serializable]
-    internal class Business
+    internal class BusinessEntity
     {
         [XmlElement(ElementName = "graph")]
-        public Graph Graph { get; set; }
+        public GraphEntity Graph { get; set; }
     }
 }

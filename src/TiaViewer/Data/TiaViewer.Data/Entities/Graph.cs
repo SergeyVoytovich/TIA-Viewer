@@ -5,9 +5,9 @@ using System.Xml.Serialization;
 namespace TiaViewer.Data.Entities
 {
     [Serializable]
-    internal class Graph
+    internal class GraphEntity
     {
         [XmlElement(ElementName = "nodes")]
-        public IList<Node> Nodes { get; set; }
+        public IList<NodeEntity> Nodes { get; set; }
     }
 }

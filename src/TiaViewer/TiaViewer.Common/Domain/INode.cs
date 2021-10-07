@@ -1,4 +1,6 @@
-﻿namespace TiaViewer.Common.Domain
+﻿using System.Collections.Generic;
+
+namespace TiaViewer.Common.Domain
 {
     /// <summary>
     /// Node
@@ -11,8 +13,8 @@
         string Type { get; set; }
 
         /// <summary>
-        /// Count of properties
+        /// Properties
         /// </summary>
-        int PropertiesCount { get; set; }
+        IDictionary<string, string> Properties { get; set; }
     }
 }
