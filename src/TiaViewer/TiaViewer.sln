@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiaViewer.Common", "TiaViewer.Common\TiaViewer.Common.csproj", "{5D0FA4BC-502E-49FC-81FA-AF81F3FEBA3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiaViewer.Common", "TiaViewer.Common\TiaViewer.Common.csproj", "{5D0FA4BC-502E-49FC-81FA-AF81F3FEBA3E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{67DFA996-0CB9-48E7-8AAC-7041506B7C59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiaViewer.Data", "Data\TiaViewer.Data\TiaViewer.Data.csproj", "{2292AD34-6D1E-48BF-B775-2B6D5BF306DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{5D0FA4BC-502E-49FC-81FA-AF81F3FEBA3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D0FA4BC-502E-49FC-81FA-AF81F3FEBA3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D0FA4BC-502E-49FC-81FA-AF81F3FEBA3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2292AD34-6D1E-48BF-B775-2B6D5BF306DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2292AD34-6D1E-48BF-B775-2B6D5BF306DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2292AD34-6D1E-48BF-B775-2B6D5BF306DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2292AD34-6D1E-48BF-B775-2B6D5BF306DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2292AD34-6D1E-48BF-B775-2B6D5BF306DC} = {67DFA996-0CB9-48E7-8AAC-7041506B7C59}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {90A18C1A-58A7-4157-BB28-074061E5479E}
