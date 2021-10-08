@@ -7,7 +7,7 @@ namespace TiaViewer.Common.Data
     /// <summary>
     /// Repository
     /// </summary>
-    interface IRepository
+    public interface IRepository
     {
         /// <summary>
         /// Get nodes 
