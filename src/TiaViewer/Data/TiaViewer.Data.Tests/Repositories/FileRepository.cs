@@ -76,7 +76,6 @@ namespace TiaViewer.Data.Tests.Repositories
         {
             // Prepare
             var deserializer = new Mock<IDeserializer>();
-            var entity = new TiaSelectionToolEntity();
             var mapper = new Mock<IMapper>();
             mapper.Setup(m => m.Map<IList<INode>>(It.IsAny<IEnumerable<NodeEntity>>()))
                 .Returns(new List<INode> { Mock.Of<INode>() });
@@ -98,7 +97,6 @@ namespace TiaViewer.Data.Tests.Repositories
         {
             // Prepare
             var deserializer = new Mock<IDeserializer>();
-            var entity = new TiaSelectionToolEntity();
             var mapper = new Mock<IMapper>();
             mapper.Setup(m => m.Map<IList<INode>>(It.IsAny<IEnumerable<NodeEntity>>()))
                 .Returns(new List<INode> { Mock.Of<INode>() });
@@ -106,7 +104,7 @@ namespace TiaViewer.Data.Tests.Repositories
             var repository = new Mock<FileRepository>(filePath, deserializer.Object, mapper.Object) { CallBase = true };
 
             // Action
-            var actual = repository.Object.GetNodes(new List<NodeEntity> { new NodeEntity() });
+            var actual = repository.Object.GetNodes(new List<NodeEntity> { new() });
 
             // Asserts
             actual.Should().NotBeNullOrEmpty();

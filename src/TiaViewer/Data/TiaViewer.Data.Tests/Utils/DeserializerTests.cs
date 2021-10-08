@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using System.Threading.Tasks;
 using FluentAssertions;
 using TiaViewer.Data.Utils;
 using Xunit;
@@ -10,9 +9,7 @@ namespace TiaViewer.Data.Tests.Utils
 {
     public class DeserializerTests
     {
-        private const string Deserialize_ByStream_Empty = "<tiaselectiontool></tiaselectiontool>";
-
-        public static IEnumerable<object[]> Deserialize_ByStreamAsyncData => new List<object[]>
+        public static IEnumerable<object[]> DeserializeByStreamAsyncData => new List<object[]>
         {
             new object[] 
             {
@@ -36,8 +33,8 @@ namespace TiaViewer.Data.Tests.Utils
         };
 
         [Theory]
-        [MemberData(nameof(Deserialize_ByStreamAsyncData))]
-        public async Task Deserialize_ByStreamAsync(string xml)
+        [MemberData(nameof(DeserializeByStreamAsyncData))]
+        public void Deserialize_ByStreamAsync(string xml)
         {
             // Prepare
             using var stream = new MemoryStream(Encoding.ASCII.GetBytes(xml));
