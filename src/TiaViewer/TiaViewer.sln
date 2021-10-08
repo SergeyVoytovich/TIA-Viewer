@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLayer", "BusinessLa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiaViewer.BusinessLayer", "BusinessLayer\TiaViewer.BusinessLayer\TiaViewer.BusinessLayer.csproj", "{D9B3F2D2-35F9-4A24-8977-35BDC68CB4A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiaViewer.BusinessLayer.Tests", "BusinessLayer\TiaViewer.BusinessLayer.Tests\TiaViewer.BusinessLayer.Tests.csproj", "{C8C5B605-D32D-4C7A-9E09-A1CDE4278943}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{D9B3F2D2-35F9-4A24-8977-35BDC68CB4A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9B3F2D2-35F9-4A24-8977-35BDC68CB4A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9B3F2D2-35F9-4A24-8977-35BDC68CB4A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8C5B605-D32D-4C7A-9E09-A1CDE4278943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8C5B605-D32D-4C7A-9E09-A1CDE4278943}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8C5B605-D32D-4C7A-9E09-A1CDE4278943}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8C5B605-D32D-4C7A-9E09-A1CDE4278943}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +51,7 @@ Global
 		{2292AD34-6D1E-48BF-B775-2B6D5BF306DC} = {67DFA996-0CB9-48E7-8AAC-7041506B7C59}
 		{F0824A9B-AF3B-456B-AB17-A7140C0C0B46} = {67DFA996-0CB9-48E7-8AAC-7041506B7C59}
 		{D9B3F2D2-35F9-4A24-8977-35BDC68CB4A5} = {2E790B85-CAFB-4190-AC94-2C0119ADA151}
+		{C8C5B605-D32D-4C7A-9E09-A1CDE4278943} = {2E790B85-CAFB-4190-AC94-2C0119ADA151}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {90A18C1A-58A7-4157-BB28-074061E5479E}
