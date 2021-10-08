@@ -8,7 +8,7 @@ namespace TiaViewer.Common.BusinessLayer
     /// Application
     /// </summary>
     /// <remarks>Provided enter point into the business logic</remarks>
-    interface IApplication
+    public interface IApplication
     {
         /// <summary>
         /// 
