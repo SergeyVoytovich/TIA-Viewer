@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiaViewer.Data", "Data\TiaV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiaViewer.Data.Tests", "Data\TiaViewer.Data.Tests\TiaViewer.Data.Tests.csproj", "{F0824A9B-AF3B-456B-AB17-A7140C0C0B46}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{FD18DD9E-1D1A-42D4-A238-9604DAFE0F4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiaViewer.Application", "Application\TiaViewer.Application\TiaViewer.Application.csproj", "{1845EC52-ABBD-4065-80CF-0B024189BE63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,10 @@ Global
 		{F0824A9B-AF3B-456B-AB17-A7140C0C0B46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0824A9B-AF3B-456B-AB17-A7140C0C0B46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0824A9B-AF3B-456B-AB17-A7140C0C0B46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1845EC52-ABBD-4065-80CF-0B024189BE63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1845EC52-ABBD-4065-80CF-0B024189BE63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1845EC52-ABBD-4065-80CF-0B024189BE63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1845EC52-ABBD-4065-80CF-0B024189BE63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +44,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2292AD34-6D1E-48BF-B775-2B6D5BF306DC} = {67DFA996-0CB9-48E7-8AAC-7041506B7C59}
 		{F0824A9B-AF3B-456B-AB17-A7140C0C0B46} = {67DFA996-0CB9-48E7-8AAC-7041506B7C59}
+		{1845EC52-ABBD-4065-80CF-0B024189BE63} = {FD18DD9E-1D1A-42D4-A238-9604DAFE0F4E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {90A18C1A-58A7-4157-BB28-074061E5479E}
