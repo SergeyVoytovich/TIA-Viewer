@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using TiaViewer.Common.Domain;
 
-namespace TiaViewer.Common.Application
+namespace TiaViewer.Common.BusinessLayer
 {
     /// <summary>
     /// Application
