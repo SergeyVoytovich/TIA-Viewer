@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:loc="clr-namespace:TiaViewer.Presentation.Wpf.Asserts.Localization"
+        xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         mc:Ignorable="d"
         DataContext="{Binding Source={StaticResource Factory}, Path=Main}"
         Height="450" 
@@ -16,6 +17,19 @@
                      Converter="{StaticResource TitleConverter}"/>
         </MultiBinding>
     </Window.Title>
+
+    <Window.Resources>
+        <CollectionViewSource x:Key="TypesSource"
+                              Source="{Binding Path=Nodes}">
+            <CollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="Type"/>
+            </CollectionViewSource.GroupDescriptions>
+            <CollectionViewSource.SortDescriptions >
+                <componentModel:SortDescription PropertyName="Type"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+
+    </Window.Resources>
 
     <Grid Margin="0">
 
@@ -37,6 +51,7 @@
                        Foreground="{StaticResource BorderBrush}"
                        Opacity="0.7"/>
 
+
             <!--Nodes-->
             <Grid Visibility="{Binding 
                                 Path=Nodes, 
@@ -47,13 +62,56 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
+
                 <!--Types-->
                 <Border  Grid.Row="0"
-                         BorderThickness="0 0 0 2">
+                         BorderThickness="0 0 0 2"
+                         Style="{StaticResource SkeletonBorder}">
+
+                    <ItemsControl ItemsSource="{Binding Source={StaticResource TypesSource}}"
+                                  VerticalAlignment="Stretch"
+                                  HorizontalAlignment="Stretch"
+                                  >
+                        <ItemsControl.GroupStyle>
+                            <GroupStyle>
+                                <GroupStyle.ContainerStyle>
+                                    <Style TargetType="{x:Type GroupItem}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate >
+                                                    <Grid d:DataContext="{x:Type CollectionViewSource}">
+                                                        <Button Margin="4 0 4 0"
+                                                                Padding="8 4 8 4"
+                                                                Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}, Path=DataContext.SelectTypeCommand}"
+                                                                CommandParameter="{Binding Path=Name}">
+                                                            <TextBlock>
+                                                                <TextBlock.Text>
+                                                                    <MultiBinding StringFormat="{}{0} ({1})">
+                                                                        <Binding Path="Name"/>
+                                                                        <Binding Path="ItemCount"/>
+                                                                    </MultiBinding>
+                                                                </TextBlock.Text>
+                                                            </TextBlock>
+                                                        </Button>
+                                                    </Grid>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </GroupStyle.ContainerStyle>
+                                <GroupStyle.Panel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel/>
+                                    </ItemsPanelTemplate>
+                                </GroupStyle.Panel>
+                            </GroupStyle>
+                        </ItemsControl.GroupStyle>
+                    </ItemsControl>
 
                 </Border>
 
-                <!--Nodes-->
+
+                <!--Nodes of type-->
                 <Grid Grid.Row="1">
 
                 </Grid>
@@ -68,10 +126,16 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
+            <Grid.Resources>
+                <Style TargetType="Border"
+                       BasedOn="{StaticResource SkeletonBorder}"/>
+            </Grid.Resources>
+
             <!--Open file dialog-->
             <Border  Grid.Column="0"
                      BorderThickness="0 2 2 0">
-                <Button Command="{Binding Path=OpenFileCommand}">
+                <Button Command="{Binding Path=OpenFileCommand}"
+                        Style="{StaticResource IconButton}">
                     <Image Source="../Asserts/Icons/FileOpen.png" 
                            Stretch="Fill" />
                 </Button>
@@ -88,7 +152,8 @@
                                         Converter={StaticResource EnumerableToVisibilityConverter}}">
 
                     <StackPanel.Resources>
-                        <Style TargetType="Button">
+                        <Style TargetType="Button"
+                               BasedOn="{StaticResource IconButton}">
                             <Setter Property="Margin"
                                     Value="0 0 8 0"/>
                         </Style>

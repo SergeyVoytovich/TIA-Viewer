@@ -18,6 +18,10 @@ namespace TiaViewer.Presentation.Wpf.ViewModels
 
         public ICommand OpenFileCommand { get; }
 
+        public ICommand SelectTypeCommand { get; }
+
+        public string SelectedType { get; set; }
+
         #endregion
 
 
@@ -26,6 +30,7 @@ namespace TiaViewer.Presentation.Wpf.ViewModels
         public MainViewModel(ViewModelEnvironment environment) : base(environment)
         {
             OpenFileCommand = new AsyncCommand(OpenFileAsync);
+            SelectTypeCommand = new Command<object>(o => SelectedType = o.ToString());
         }
 
         #endregion
