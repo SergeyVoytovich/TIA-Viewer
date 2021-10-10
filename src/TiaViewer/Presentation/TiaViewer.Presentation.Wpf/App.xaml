@@ -1,8 +1,11 @@
 ﻿<Application x:Class="TiaViewer.Presentation.Wpf.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:TiaViewer.Presentation.Wpf.ViewModels;assembly=TiaViewer.Presentation.Wpf.Core"
+             xmlns:cnv="clr-namespace:TiaViewer.Presentation.Wpf.Converters"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-         
+        <vm:ViewModelsFactory x:Key="Factory"/>
+        <cnv:FullStringsFormatter x:Key="TitleConverter" Format=" - {0}"/>
     </Application.Resources>
 </Application>

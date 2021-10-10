@@ -6,4 +6,25 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\BusinessLayer\TiaViewer.BusinessLayer\TiaViewer.BusinessLayer.csproj" />
+    <ProjectReference Include="..\..\Data\TiaViewer.Data\TiaViewer.Data.csproj" />
+    <ProjectReference Include="..\TiaViewer.Presentation.Wpf.Core\TiaViewer.Presentation.Wpf.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Asserts\Localization\Strings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Asserts\Localization\Strings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>
