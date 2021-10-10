@@ -17,6 +17,7 @@
         <cnv:EnumerableToVisibilityConverter x:Key="EnumerableToVisibilityInvertedConverter" 
                                              Empty="Visible"
                                              NotEmpty="Collapsed"/>
+        <cnv:ViewToSourceConverter x:Key="ViewToSourceConverter"/>
 
         <Brush x:Key="BorderBrush">
             Black
