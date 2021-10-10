@@ -59,7 +59,8 @@ namespace TiaViewer.Presentation.Wpf.ViewModels
         {
             Nodes = nodes.Select(n => new NodeViewModel(new ViewModelEnvironment(Application, Services))
             {
-                Type = n.Type
+                Type = n.Type,
+                Properties = n.Properties
             }).ToList();
         }
 

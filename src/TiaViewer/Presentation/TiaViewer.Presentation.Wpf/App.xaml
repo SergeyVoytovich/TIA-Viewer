@@ -18,6 +18,7 @@
                                              Empty="Visible"
                                              NotEmpty="Collapsed"/>
         <cnv:ViewToSourceConverter x:Key="ViewToSourceConverter"/>
+        <cnv:StringsToNotEmptyString x:Key="StringsToNotEmptyString"/>
 
         <Brush x:Key="BorderBrush">
             Black

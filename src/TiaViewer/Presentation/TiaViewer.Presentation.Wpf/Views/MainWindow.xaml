@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:loc="clr-namespace:TiaViewer.Presentation.Wpf.Asserts.Localization"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+        xmlns:viewModels="clr-namespace:TiaViewer.Presentation.Wpf.ViewModels;assembly=TiaViewer.Presentation.Wpf.Core"
         mc:Ignorable="d"
         DataContext="{Binding Source={StaticResource Factory}, Path=Main}"
         Height="450" 
@@ -27,6 +28,10 @@
             <CollectionViewSource.SortDescriptions >
                 <componentModel:SortDescription PropertyName="Type"/>
             </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+
+        <CollectionViewSource x:Key="FilteredNodesSource" 
+                              Source="{Binding ElementName=Types, Path=SelectedItem.Items}">
         </CollectionViewSource>
 
     </Window.Resources>
@@ -68,7 +73,8 @@
                          BorderThickness="0 0 0 2"
                          Style="{StaticResource SkeletonBorder}">
 
-                    <ListView ItemsSource="{Binding 
+                    <ListView x:Name="Types"
+                              ItemsSource="{Binding 
                                                     Source={StaticResource TypesSource}, 
                                                     Converter={StaticResource ViewToSourceConverter}
                                                 }"
@@ -115,7 +121,7 @@
 
                         <ListView.ItemContainerStyle>
                             <Style TargetType="{x:Type ListViewItem}">
-                               <Setter Property="Background"
+                                <Setter Property="Background"
                                         Value="Transparent"/>
                                 <Setter Property="Template">
                                     <Setter.Value>
@@ -124,7 +130,7 @@
                                         </ControlTemplate>
                                     </Setter.Value>
                                 </Setter>
-                               <Setter Property="ContentTemplate" 
+                                <Setter Property="ContentTemplate" 
                                        Value="{StaticResource ItemTemplate}" />
                                 <Style.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
@@ -146,9 +152,38 @@
 
 
                 <!--Nodes of type-->
-                <Grid Grid.Row="1">
+                <ListView Grid.Row="1"
+                          VerticalAlignment="Stretch"
+                          HorizontalAlignment="Stretch"
+                          ItemsSource="{Binding Source={StaticResource FilteredNodesSource}}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Node">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate DataType="{x:Type viewModels:NodeViewModel}">
+                                        <TextBlock>
+                                            <TextBlock.Text>
+                                                <MultiBinding Converter="{StaticResource StringsToNotEmptyString}">
+                                                    <Binding Path="Name"/>
+                                                    <Binding Path="Id"/>
+                                                </MultiBinding>
+                                            </TextBlock.Text>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Properties count">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate DataType="{x:Type viewModels:NodeViewModel}">
+                                        <TextBlock Text="{Binding Properties.Count}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
 
-                </Grid>
+
+                </ListView>
 
             </Grid>
         </Grid>
