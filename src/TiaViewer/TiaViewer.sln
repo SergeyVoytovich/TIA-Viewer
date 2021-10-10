@@ -17,6 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiaViewer.BusinessLayer", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiaViewer.BusinessLayer.Tests", "BusinessLayer\TiaViewer.BusinessLayer.Tests\TiaViewer.BusinessLayer.Tests.csproj", "{CF3B7E7B-14E0-4AC3-B942-2F66B8AF192A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{402B260E-98BD-443F-8EE2-0E746FA417F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiaViewer.Presentation.Wpf", "Presentation\TiaViewer.Presentation.Wpf\TiaViewer.Presentation.Wpf.csproj", "{767EE733-D846-42F3-AB4E-DB102D0A1383}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,10 @@ Global
 		{CF3B7E7B-14E0-4AC3-B942-2F66B8AF192A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF3B7E7B-14E0-4AC3-B942-2F66B8AF192A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF3B7E7B-14E0-4AC3-B942-2F66B8AF192A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{767EE733-D846-42F3-AB4E-DB102D0A1383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{767EE733-D846-42F3-AB4E-DB102D0A1383}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{767EE733-D846-42F3-AB4E-DB102D0A1383}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{767EE733-D846-42F3-AB4E-DB102D0A1383}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +60,7 @@ Global
 		{F0824A9B-AF3B-456B-AB17-A7140C0C0B46} = {67DFA996-0CB9-48E7-8AAC-7041506B7C59}
 		{989938FA-5FBA-4DC2-9C9D-A0F4F2F46DC7} = {BE367B8C-A655-4722-8384-6E253675C4E9}
 		{CF3B7E7B-14E0-4AC3-B942-2F66B8AF192A} = {BE367B8C-A655-4722-8384-6E253675C4E9}
+		{767EE733-D846-42F3-AB4E-DB102D0A1383} = {402B260E-98BD-443F-8EE2-0E746FA417F5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {90A18C1A-58A7-4157-BB28-074061E5479E}
