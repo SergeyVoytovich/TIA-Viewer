@@ -21,6 +21,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiaViewer.Presentation.Wpf", "Presentation\TiaViewer.Presentation.Wpf\TiaViewer.Presentation.Wpf.csproj", "{767EE733-D846-42F3-AB4E-DB102D0A1383}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiaViewer.Presentation.Wpf.Core.Tests", "Presentation\TiaViewer.Presentation.Wpf.Tests\TiaViewer.Presentation.Wpf.Core.Tests.csproj", "{7718A0DC-2E4D-4F32-AB68-FFF0814A7A33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiaViewer.Presentation.Wpf.Core", "Presentation\TiaViewer.Presentation.Wpf.Core\TiaViewer.Presentation.Wpf.Core.csproj", "{471C3372-2DB4-42EA-8B5A-ECF3DBADCAFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{767EE733-D846-42F3-AB4E-DB102D0A1383}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{767EE733-D846-42F3-AB4E-DB102D0A1383}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{767EE733-D846-42F3-AB4E-DB102D0A1383}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7718A0DC-2E4D-4F32-AB68-FFF0814A7A33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7718A0DC-2E4D-4F32-AB68-FFF0814A7A33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7718A0DC-2E4D-4F32-AB68-FFF0814A7A33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7718A0DC-2E4D-4F32-AB68-FFF0814A7A33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{471C3372-2DB4-42EA-8B5A-ECF3DBADCAFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{471C3372-2DB4-42EA-8B5A-ECF3DBADCAFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{471C3372-2DB4-42EA-8B5A-ECF3DBADCAFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{471C3372-2DB4-42EA-8B5A-ECF3DBADCAFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +73,8 @@ Global
 		{989938FA-5FBA-4DC2-9C9D-A0F4F2F46DC7} = {BE367B8C-A655-4722-8384-6E253675C4E9}
 		{CF3B7E7B-14E0-4AC3-B942-2F66B8AF192A} = {BE367B8C-A655-4722-8384-6E253675C4E9}
 		{767EE733-D846-42F3-AB4E-DB102D0A1383} = {402B260E-98BD-443F-8EE2-0E746FA417F5}
+		{7718A0DC-2E4D-4F32-AB68-FFF0814A7A33} = {402B260E-98BD-443F-8EE2-0E746FA417F5}
+		{471C3372-2DB4-42EA-8B5A-ECF3DBADCAFA} = {402B260E-98BD-443F-8EE2-0E746FA417F5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {90A18C1A-58A7-4157-BB28-074061E5479E}
