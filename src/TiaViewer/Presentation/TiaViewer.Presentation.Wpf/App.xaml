@@ -6,6 +6,33 @@
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
         <vm:ViewModelsFactory x:Key="Factory"/>
-        <cnv:FullStringsFormatter x:Key="TitleConverter" Format=" - {0}"/>
+
+        <!--Converters-->
+        <cnv:FullStringsFormatter x:Key="TitleConverter" 
+                                  Format=" - {0}"/>
+        <cnv:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
+        <cnv:EnumerableToVisibilityConverter x:Key="EnumerableToVisibilityConverter" />
+        <cnv:EnumerableToVisibilityConverter x:Key="EnumerableToVisibilityInvertedConverter" 
+                                             Empty="Visible"
+                                             NotEmpty="Collapsed"/>
+
+        <Brush x:Key="BorderBrush">
+            Black
+        </Brush>
+
+        <!--Styles-->
+        <Style TargetType="Button">
+            <Setter Property="Height"
+                    Value="42"/>
+            <Setter Property="Width"
+                    Value="42"/>
+        </Style>
+
+        <Style TargetType="Border">
+            <Setter Property="Padding"
+                    Value="8"/>
+            <Setter Property="BorderBrush"
+                    Value="{StaticResource BorderBrush}"/>
+        </Style>
     </Application.Resources>
 </Application>

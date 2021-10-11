@@ -1,4 +1,5 @@
-﻿using TiaViewer.Common.BusinessLayer;
+﻿using System.Collections.Generic;
+using TiaViewer.Common.BusinessLayer;
 
 namespace TiaViewer.Presentation.Wpf.ViewModels
 {
@@ -8,14 +9,12 @@ namespace TiaViewer.Presentation.Wpf.ViewModels
 
         public string SelectedFile { get => Get<string>(); set => Set(value); }
 
+        public IList<NodeViewModel> Nodes { get => Get<List<NodeViewModel>>(); set => Set(value); }
+
         #endregion
 
 
         #region Constructors
-
-        public MainViewModel() : this(null)
-        {
-        }
 
         public MainViewModel(IApplication application) : base(application)
         {

@@ -7,9 +7,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Asserts\Icons\Compare.png" />
+    <None Remove="Asserts\Icons\CsvExport.png" />
+    <None Remove="Asserts\Icons\FileOpen.png" />
+    <None Remove="Asserts\Icons\Settings.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\BusinessLayer\TiaViewer.BusinessLayer\TiaViewer.BusinessLayer.csproj" />
     <ProjectReference Include="..\..\Data\TiaViewer.Data\TiaViewer.Data.csproj" />
     <ProjectReference Include="..\TiaViewer.Presentation.Wpf.Core\TiaViewer.Presentation.Wpf.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Asserts\Icons\Compare.png" />
+    <Resource Include="Asserts\Icons\CsvExport.png" />
+    <Resource Include="Asserts\Icons\FileOpen.png" />
+    <Resource Include="Asserts\Icons\Settings.png" />
   </ItemGroup>
 
   <ItemGroup>

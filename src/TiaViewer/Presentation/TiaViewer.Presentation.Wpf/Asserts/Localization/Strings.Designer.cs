@@ -61,6 +61,15 @@ namespace TiaViewer.Presentation.Wpf.Asserts.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No nodes found. Please select a file to show nodes..
+        /// </summary>
+        public static string NoNodes {
+            get {
+                return ResourceManager.GetString("NoNodes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TIA Selection Tool - File-Viewer.
         /// </summary>
         public static string Title {
