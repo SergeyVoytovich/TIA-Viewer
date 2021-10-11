@@ -5,6 +5,9 @@ using System.Runtime.CompilerServices;
 
 namespace TiaViewer.Presentation.Wpf.ViewModels
 {
+    /// <summary>
+    /// Base notify changed object
+    /// </summary>
     public abstract class NotifyChangedBase : INotifyPropertyChanged
     {
         #region Fields
@@ -16,10 +19,16 @@ namespace TiaViewer.Presentation.Wpf.ViewModels
 
         #region Constructors
 
+        /// <summary>
+        /// Initialized new instance
+        /// </summary>
         public NotifyChangedBase() : this(new ConcurrentDictionary<string, object>())
         {
         }
 
+        /// <summary>
+        /// Initialized new instance
+        /// </summary>
         public NotifyChangedBase(ConcurrentDictionary<string, object> properties)
         {
             _properties = properties ?? throw new ArgumentNullException(nameof(properties));
@@ -30,10 +39,18 @@ namespace TiaViewer.Presentation.Wpf.ViewModels
 
         #region Events
 
-        public event PropertyChangedEventHandler PropertyChanged = delegate { };
+        /// <summary>
+        /// Property changed
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Property changed invoker
+        /// </summary>
+        /// <param name="propertyName"></param>
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         #endregion
@@ -41,9 +58,21 @@ namespace TiaViewer.Presentation.Wpf.ViewModels
 
         #region Methods
 
+        /// <summary>
+        /// Get property value
+        /// </summary>
+        /// <typeparam name="T">Expected type of property</typeparam>
+        /// <param name="propertyName">Property name</param>
+        /// <returns>Property value</returns>
         protected internal virtual T Get<T>([CallerMemberName] string propertyName = null) 
             => string.IsNullOrWhiteSpace(propertyName) ? default : (T)_properties.GetOrAdd(propertyName, default(T));
 
+        /// <summary>
+        /// Set property value
+        /// </summary>
+        /// <typeparam name="T">Property value type</typeparam>
+        /// <param name="value">Value</param>
+        /// <param name="propertyName">Property name</param>
         protected internal virtual void Set<T>(T value, [CallerMemberName] string propertyName = null)
         {
             var notify = false;

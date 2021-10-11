@@ -7,6 +7,9 @@ using TiaViewer.Presentation.Wpf.Services;
 
 namespace TiaViewer.Presentation.Wpf.ViewModels
 {
+    /// <summary>
+    /// View models factory
+    /// </summary>
     public class ViewModelsFactory
     {
         #region Fields
@@ -18,17 +21,27 @@ namespace TiaViewer.Presentation.Wpf.ViewModels
 
         #region Constructors
 
+        /// <summary>
+        /// Initialize a new instance
+        /// </summary>
         public ViewModelsFactory()
             : this(new DataSource())
         {
 
         }
 
+        /// <summary>
+        /// Initialize a new instance
+        /// </summary>
         public ViewModelsFactory(IDataSource dataSource)
             :this(new Application(dataSource))
         {
 
         }
+
+        /// <summary>
+        /// Initialize a new instance
+        /// </summary>
         public ViewModelsFactory(IApplication application)
         {
             _application = application ?? throw new ArgumentNullException(nameof(application));
@@ -39,7 +52,11 @@ namespace TiaViewer.Presentation.Wpf.ViewModels
 
         #region Properties
 
-        public MainViewModel Main => new MainViewModel(new ViewModelEnvironment(_application, new ServicesCollection(new FileDialogService())));
+        /// <summary>
+        /// Main view model
+        /// </summary>
+        public MainViewModel Main 
+            => new(new ViewModelEnvironment(_application, new ServicesCollection(new FileDialogService())));
 
         #endregion
     }
