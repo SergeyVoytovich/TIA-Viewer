@@ -8,21 +8,18 @@
         <viewModels:ViewModelsFactory x:Key="Factory"/>
 
         <!--Converters-->
-        <cnv:FullStringsFormatter x:Key="TitleConverter" 
+        <cnv:NotEmptyStringsFormatter x:Key="TitleConverter" 
                                   Format=" - {0}"/>
-        <cnv:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
-        <cnv:EnumerableToVisibilityConverter x:Key="EnumerableToVisibilityConverter" 
+        <cnv:EmptyStringToVisibilityConverter x:Key="EmptyStringToVisibilityConverter" />
+        <cnv:CollectionToVisibilityConverter x:Key="CollectionToVisibilityConverter" 
                                              Empty="Collapsed"
                                              NotEmpty="Visible"/>
-        <cnv:EnumerableToVisibilityConverter x:Key="EnumerableToVisibilityInvertedConverter" 
+        <cnv:CollectionToVisibilityConverter x:Key="CollectionToVisibilityInvertedConverter" 
                                              Empty="Visible"
                                              NotEmpty="Collapsed"/>
-        <cnv:ViewToSourceConverter x:Key="ViewToSourceConverter"/>
-        <cnv:StringsToNotEmptyString x:Key="StringsToNotEmptyString"/>
+        <cnv:ListCollectionViewToGroupsConverter x:Key="ListCollectionViewToGroupsConverter"/>
+        <cnv:NotEmptyStringChooser x:Key="StringsToNotEmptyString"/>
 
-        <Brush x:Key="BorderBrush">
-            Black
-        </Brush>
 
         <!--Styles-->
         <Style TargetType="Button">
@@ -39,12 +36,5 @@
                     Value="32"/>
         </Style>
 
-        <Style x:Key="SkeletonBorder"
-               TargetType="Border">
-            <Setter Property="Padding"
-                    Value="8"/>
-            <Setter Property="BorderBrush"
-                    Value="{StaticResource BorderBrush}"/>
-        </Style>
     </Application.Resources>
 </Application>

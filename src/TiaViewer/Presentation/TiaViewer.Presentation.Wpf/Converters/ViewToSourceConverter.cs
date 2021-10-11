@@ -1,10 +1,20 @@
-﻿using System.Windows.Data;
+﻿using System.Collections.Generic;
+using System.Windows.Data;
 
 namespace TiaViewer.Presentation.Wpf.Converters
 {
-    public class ViewToSourceConverter : ConverterBase<ListCollectionView, object>
+
+    /// <summary>
+    /// <see cref="ListCollectionView"/> to the list groups converter
+    /// </summary>
+    public class ListCollectionViewToGroupsConverter : ConverterBase<ListCollectionView, ICollection<object>>
     {
-        protected override object Convert(ListCollectionView source)
+        /// <summary>
+        /// Convert
+        /// </summary>
+        /// <param name="source"><see cref="ListCollectionView"/></param>
+        /// <returns>Grouped list</returns>
+        protected override ICollection<object> Convert(ListCollectionView source)
             => source?.Groups;
     }
 }

@@ -51,16 +51,15 @@
                        HorizontalAlignment="Center"
                        Visibility="{Binding 
                                     Path=Nodes, 
-                                    Converter={StaticResource EnumerableToVisibilityInvertedConverter}}"
+                                    Converter={StaticResource CollectionToVisibilityInvertedConverter}}"
                        Text="{x:Static loc:Strings.NoNodes}"
-                       Foreground="{StaticResource BorderBrush}"
                        Opacity="0.7"/>
 
 
             <!--Nodes-->
             <Grid Visibility="{Binding 
                                 Path=Nodes, 
-                                Converter={StaticResource EnumerableToVisibilityConverter}}">
+                                Converter={StaticResource CollectionToVisibilityConverter}}">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -74,7 +73,7 @@
                           Grid.Row="0"
                           ItemsSource="{Binding 
                                                     Source={StaticResource TypesSource}, 
-                                                    Converter={StaticResource ViewToSourceConverter}
+                                                    Converter={StaticResource ListCollectionViewToGroupsConverter}
                                                 }"
                           BorderThickness="0 0 0 0"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled">
@@ -124,15 +123,14 @@
                                HorizontalAlignment="Center"
                                Visibility="{Binding 
                                     Source={StaticResource FilteredNodesSource}, 
-                                    Converter={StaticResource EnumerableToVisibilityInvertedConverter}}"
+                                    Converter={StaticResource CollectionToVisibilityInvertedConverter}}"
                                Text="{x:Static loc:Strings.NoNodesPerType}"
-                               Foreground="{StaticResource BorderBrush}"
                                Opacity="0.7"/>
 
                     <ListView ItemsSource="{Binding Source={StaticResource FilteredNodesSource}}"
                               Visibility="{Binding 
                                     Source={StaticResource FilteredNodesSource}, 
-                                    Converter={StaticResource EnumerableToVisibilityConverter}}">
+                                    Converter={StaticResource CollectionToVisibilityConverter}}">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="{x:Static loc:Strings.NodeHeader}"
@@ -177,12 +175,6 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Grid.Resources>
-                <Style TargetType="Border"
-                       BasedOn="{StaticResource SkeletonBorder}"/>
-            </Grid.Resources>
-
-
             <!--Open file dialog-->
             <Button Grid.Column="0" 
                     Command="{Binding Path=OpenFileCommand}"
@@ -197,7 +189,7 @@
                         Margin="16 0 0 0"
                         Visibility="{Binding 
                                         Path=Nodes,
-                                        Converter={StaticResource EnumerableToVisibilityConverter}}">
+                                        Converter={StaticResource CollectionToVisibilityConverter}}">
 
                 <StackPanel.Resources>
                     <Style TargetType="Button"
