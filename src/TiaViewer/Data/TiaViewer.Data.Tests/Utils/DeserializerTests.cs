@@ -30,6 +30,39 @@ namespace TiaViewer.Data.Tests.Utils
                 "   </business>" +
                 "</tiaselectiontool>",
             },
+            new object[]
+            {
+                "<tiaselectiontool Version=\"2015.3.9.0\" Application=\"TIA Selection Tool\">" +
+                "  <business>" +
+                "    <graph>" +
+                "      <nodes>" +
+                "        <node Type=\"Solution\">" +
+                "          <properties>" +
+                "            <property>" +
+                "              <key>CreationTime</key>" +
+                "              <value>635768005256758612</value>" +
+                "            </property>" +
+                "            <property>" +
+                "              <key>LastWriteTime</key>" +
+                "              <value>635831296673274407</value>" +
+                "            </property>" +
+                "            <property>" +
+                "              <key>Id</key>" +
+                "              <value>QEzaVSJxUjtOJ1hB</value>" +
+                "            </property>" +
+                "            <property>" +
+                "              <key>Name</key>" +
+                "              <value>Test1</value>" +
+                "            </property>" +
+                "          </properties>" +
+                "        </node>" +
+                "      </nodes>" +
+                "    </graph>" +
+                "  </business>" +
+                "</tiaselectiontool>"
+
+
+            }
         };
 
         [Theory]

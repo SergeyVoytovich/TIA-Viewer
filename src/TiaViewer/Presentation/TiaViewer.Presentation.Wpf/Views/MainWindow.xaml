@@ -71,7 +71,7 @@
             <!--Open file dialog-->
             <Border  Grid.Column="0"
                      BorderThickness="0 2 2 0">
-                <Button>
+                <Button Command="{Binding Path=OpenFileCommand}">
                     <Image Source="../Asserts/Icons/FileOpen.png" 
                            Stretch="Fill" />
                 </Button>
@@ -86,6 +86,14 @@
                             Visibility="{Binding 
                                         Path=Nodes,
                                         Converter={StaticResource EnumerableToVisibilityConverter}}">
+
+                    <StackPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Margin"
+                                    Value="0 0 8 0"/>
+                        </Style>
+                    </StackPanel.Resources>
+
                     <Button>
                         <Image Source="../Asserts/Icons/Settings.png" />
                     </Button>

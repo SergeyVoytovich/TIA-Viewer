@@ -46,10 +46,11 @@ namespace TiaViewer.Presentation.Wpf.ViewModels
 
         protected internal virtual void Set<T>(T value, [CallerMemberName] string propertyName = null)
         {
+            var notify = false;
             _properties.AddOrUpdate(propertyName,
                 _ =>
                 {
-                    OnPropertyChanged(propertyName);
+                    notify = true;
                     return value;
                 },
                 (_, old) =>
@@ -59,9 +60,14 @@ namespace TiaViewer.Presentation.Wpf.ViewModels
                         return old;
                     }
 
-                    OnPropertyChanged(propertyName);
+                    notify = true;
                     return value;
                 });
+
+            if (notify)
+            {
+                OnPropertyChanged(propertyName);
+            }
         }
 
 

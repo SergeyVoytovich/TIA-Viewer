@@ -10,7 +10,8 @@ namespace TiaViewer.Data.Entities
         [XmlAttribute(AttributeName = "Type")]
         public string Type { get; set; }
 
-        [XmlElement(ElementName = "properties")]
+        [XmlArray("properties")]
+        [XmlArrayItem("property")]
         public List<PropertyEntity> Properties { get; set; }
     }
 }

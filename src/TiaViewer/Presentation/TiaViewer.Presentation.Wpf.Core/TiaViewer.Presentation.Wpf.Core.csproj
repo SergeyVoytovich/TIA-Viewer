@@ -18,6 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\BusinessLayer\TiaViewer.BusinessLayer\TiaViewer.BusinessLayer.csproj" />
     <ProjectReference Include="..\..\Data\TiaViewer.Data\TiaViewer.Data.csproj" />
     <ProjectReference Include="..\..\TiaViewer.Common\TiaViewer.Common.csproj" />

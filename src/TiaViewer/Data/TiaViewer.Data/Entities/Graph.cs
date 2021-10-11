@@ -7,7 +7,8 @@ namespace TiaViewer.Data.Entities
     [Serializable]
     public class GraphEntity
     {
-        [XmlElement(ElementName = "nodes")]
+        [XmlArray(ElementName = "nodes")]
+        [XmlArrayItem(ElementName = "node")]
         public List<NodeEntity> Nodes { get; set; }
     }
 }

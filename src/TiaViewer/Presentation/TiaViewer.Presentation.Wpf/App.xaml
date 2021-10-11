@@ -1,17 +1,19 @@
 ﻿<Application x:Class="TiaViewer.Presentation.Wpf.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:vm="clr-namespace:TiaViewer.Presentation.Wpf.ViewModels;assembly=TiaViewer.Presentation.Wpf.Core"
              xmlns:cnv="clr-namespace:TiaViewer.Presentation.Wpf.Converters"
+             xmlns:viewModels="clr-namespace:TiaViewer.Presentation.Wpf.ViewModels"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-        <vm:ViewModelsFactory x:Key="Factory"/>
+        <viewModels:ViewModelsFactory x:Key="Factory"/>
 
         <!--Converters-->
         <cnv:FullStringsFormatter x:Key="TitleConverter" 
                                   Format=" - {0}"/>
         <cnv:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
-        <cnv:EnumerableToVisibilityConverter x:Key="EnumerableToVisibilityConverter" />
+        <cnv:EnumerableToVisibilityConverter x:Key="EnumerableToVisibilityConverter" 
+                                             Empty="Collapsed"
+                                             NotEmpty="Visible"/>
         <cnv:EnumerableToVisibilityConverter x:Key="EnumerableToVisibilityInvertedConverter" 
                                              Empty="Visible"
                                              NotEmpty="Collapsed"/>

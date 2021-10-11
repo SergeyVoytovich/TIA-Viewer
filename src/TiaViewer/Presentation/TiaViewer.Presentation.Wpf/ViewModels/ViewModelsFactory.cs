@@ -1,7 +1,9 @@
-﻿using TiaViewer.BusinessLayer;
+﻿using System;
+using TiaViewer.BusinessLayer;
 using TiaViewer.Common.BusinessLayer;
 using TiaViewer.Common.Data;
 using TiaViewer.Data;
+using TiaViewer.Presentation.Wpf.Services;
 
 namespace TiaViewer.Presentation.Wpf.ViewModels
 {
@@ -29,7 +31,7 @@ namespace TiaViewer.Presentation.Wpf.ViewModels
         }
         public ViewModelsFactory(IApplication application)
         {
-            _application = application;
+            _application = application ?? throw new ArgumentNullException(nameof(application));
         }
 
         #endregion
@@ -37,7 +39,7 @@ namespace TiaViewer.Presentation.Wpf.ViewModels
 
         #region Properties
 
-        public MainViewModel Main => new MainViewModel(_application);
+        public MainViewModel Main => new MainViewModel(new ViewModelEnvironment(_application, new ServicesCollection(new FileDialogService())));
 
         #endregion
     }

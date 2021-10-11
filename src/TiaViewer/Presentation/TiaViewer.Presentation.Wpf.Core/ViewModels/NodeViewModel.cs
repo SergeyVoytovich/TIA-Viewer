@@ -1,10 +1,15 @@
-﻿using TiaViewer.Common.BusinessLayer;
-
-namespace TiaViewer.Presentation.Wpf.ViewModels
+﻿namespace TiaViewer.Presentation.Wpf.ViewModels
 {
     public class NodeViewModel : ViewModelBase
     {
-        public NodeViewModel(IApplication application) : base(application)
+        #region Properties
+
+        public string Type { get; set; }
+        
+
+        #endregion
+
+        public NodeViewModel(ViewModelEnvironment environment) : base(environment)
         {
         }
     }

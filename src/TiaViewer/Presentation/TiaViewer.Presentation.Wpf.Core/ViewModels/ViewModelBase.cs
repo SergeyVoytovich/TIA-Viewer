@@ -1,4 +1,6 @@
-﻿using TiaViewer.Common.BusinessLayer;
+﻿using System;
+using TiaViewer.Common.BusinessLayer;
+using TiaViewer.Presentation.Wpf.Services;
 
 namespace TiaViewer.Presentation.Wpf.ViewModels
 {
@@ -6,16 +8,18 @@ namespace TiaViewer.Presentation.Wpf.ViewModels
     {
         #region Properties
 
-        protected internal IApplication Application { get; }
+        protected IApplication Application { get; }
+        protected IServicesCollection Services { get; }
 
         #endregion
 
 
         #region Constructors
 
-        protected ViewModelBase(IApplication application)
+        protected ViewModelBase(ViewModelEnvironment environment)
         {
-            Application = application;
+            Application = environment?.Application ?? throw new ArgumentNullException(nameof(ViewModelEnvironment.Application));
+            Services = environment.Services ?? throw new ArgumentNullException(nameof(ViewModelEnvironment.Services));
         }
 
         #endregion
