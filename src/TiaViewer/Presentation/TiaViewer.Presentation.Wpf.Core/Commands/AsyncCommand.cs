@@ -63,7 +63,5 @@ namespace TiaViewer.Presentation.Wpf.Commands
         }
 
         #endregion
-
-        
     }
 }

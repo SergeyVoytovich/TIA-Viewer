@@ -5,9 +5,15 @@ using TiaViewer.Data.Entities;
 
 namespace TiaViewer.Data.Mapping
 {
-    internal class TiaProfile : Profile
+    /// <summary>
+    /// Entities mapping provider
+    /// </summary>
+    internal class EntitiesProfile : Profile
     {
-        public TiaProfile()
+        /// <summary>
+        /// Initialized new instance
+        /// </summary>
+        public EntitiesProfile()
         {
             CreateMap<NodeEntity, INode>()
                 .ConstructUsing(n => new Node())
