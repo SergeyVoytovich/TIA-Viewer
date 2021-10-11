@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using FluentAssertions;
+using TiaViewer.Data.Entities;
 using TiaViewer.Data.Utils;
 using Xunit;
 
@@ -21,7 +24,7 @@ namespace TiaViewer.Data.Tests.Utils
                 "                   <properties>" +
                 "                       <property>" +
                 "                           <key>Key</key>" +
-                "                           <value>Key</value>" +
+                "                           <value>Value</value>" +
                 "                       </property>" +
                 "                   </properties>" +
                 "               </node>" +
@@ -29,6 +32,17 @@ namespace TiaViewer.Data.Tests.Utils
                 "       </graph>" +
                 "   </business>" +
                 "</tiaselectiontool>",
+                new List<NodeEntity>
+                {
+                    new()
+                    {
+                        Type = "Solution",
+                        Properties = new List<PropertyEntity>
+                        {
+                            new() {Key = "Key", Value = "Value"}
+                        }
+                    }
+                }
             },
             new object[]
             {
@@ -59,15 +73,27 @@ namespace TiaViewer.Data.Tests.Utils
                 "      </nodes>" +
                 "    </graph>" +
                 "  </business>" +
-                "</tiaselectiontool>"
-
-
+                "</tiaselectiontool>",
+                new List<NodeEntity>
+                {
+                    new()
+                    {
+                        Type = "Solution",
+                        Properties = new List<PropertyEntity>
+                        {
+                            new() {Key = "CreationTime", Value = "635768005256758612"},
+                            new() {Key = "LastWriteTime", Value = "635831296673274407"},
+                            new() {Key = "Id", Value = "QEzaVSJxUjtOJ1hB"},
+                            new() {Key = "Name", Value = "Test1"}
+                        }
+                    }
+                }
             }
         };
 
         [Theory]
         [MemberData(nameof(DeserializeByStreamAsyncData))]
-        public void Deserialize_ByStreamAsync(string xml)
+        public void Deserialize_ByStreamAsync_AllObjects(string xml, IList<NodeEntity> nodes)
         {
             // Prepare
             using var stream = new MemoryStream(Encoding.ASCII.GetBytes(xml));
@@ -78,6 +104,22 @@ namespace TiaViewer.Data.Tests.Utils
 
             // Asserts
             actual.Should().NotBeNull();
+            actual.Business.Should().NotBeNull();
+            actual.Business.Graph.Should().NotBeNull();
+            actual.Business.Graph.Nodes.Should()
+                .NotBeNullOrEmpty()
+                .And.HaveCount(nodes.Count);
+            actual.Business.Graph.Nodes.Should().OnlyContain(n => n.Properties.Any());
+
+            bool Equal(NodeEntity a, NodeEntity b) 
+                => string.Equals(a.Type, b.Type, StringComparison.OrdinalIgnoreCase) 
+                   && a.Properties.All(
+                       ap => b.Properties.Any(
+                           p => string.Equals(ap.Key, p.Key, StringComparison.OrdinalIgnoreCase) 
+                                && string.Equals(ap.Value, p.Value, StringComparison.OrdinalIgnoreCase))
+                       );
+
+            nodes.All(n => actual.Business.Graph.Nodes.Any(a => Equal(a, n))).Should().BeTrue();
         }
     }
 }
