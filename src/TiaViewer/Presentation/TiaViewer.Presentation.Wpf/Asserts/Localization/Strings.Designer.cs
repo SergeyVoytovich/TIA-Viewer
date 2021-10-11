@@ -61,11 +61,20 @@ namespace TiaViewer.Presentation.Wpf.Asserts.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No nodes found. Please select a file to show nodes..
+        ///   Looks up a localized string similar to No nodes found. Please open a file to show nodes..
         /// </summary>
         public static string NoNodes {
             get {
                 return ResourceManager.GetString("NoNodes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No nodes for selected type found. Please select another type..
+        /// </summary>
+        public static string NoNodesPerType {
+            get {
+                return ResourceManager.GetString("NoNodesPerType", resourceCulture);
             }
         }
         

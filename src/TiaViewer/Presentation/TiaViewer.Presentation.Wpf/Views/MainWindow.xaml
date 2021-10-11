@@ -46,7 +46,7 @@
         <!--Content-->
         <Grid Row="0">
 
-            <!--No nodes-->
+            <!--No types-->
             <TextBlock VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Visibility="{Binding 
@@ -69,127 +69,109 @@
 
 
                 <!--Types-->
-                <Border  Grid.Row="0"
-                         BorderThickness="0 0 0 2"
-                         Style="{StaticResource SkeletonBorder}">
 
-                    <ListView x:Name="Types"
-                              ItemsSource="{Binding 
+                <ListView x:Name="Types"
+                          Grid.Row="0"
+                          ItemsSource="{Binding 
                                                     Source={StaticResource TypesSource}, 
                                                     Converter={StaticResource ViewToSourceConverter}
                                                 }"
-                              BorderThickness="0 0 0 0"
-                              ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                          BorderThickness="0 0 0 0"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 
-                        <ListView.Resources>
-                            <DataTemplate x:Key="ItemTemplate"
-                                          DataType="{x:Type CollectionViewGroup}">
-                                <Border Margin="4 0 4 4"
-                                        Padding="8 4 8 4"
-                                        BorderBrush="{StaticResource BorderBrush}"
-                                        BorderThickness="2">
-                                    <TextBlock>
-                                        <TextBlock.Text>
-                                            <MultiBinding StringFormat="{}{0} ({1})">
-                                                <Binding Path="Name"/>
-                                                <Binding Path="ItemCount"/>
-                                            </MultiBinding>
-                                        </TextBlock.Text>
-                                    </TextBlock>
-                                </Border>
-                            </DataTemplate>
+                    <ListView.Resources>
 
-                            <DataTemplate x:Key="SelectedTemplate"
-                                          DataType="{x:Type CollectionViewGroup}">
-                                <Border Margin="4 0 4 4"
-                                        Padding="8 4 8 4"
-                                        BorderBrush="{StaticResource BorderBrush}"
-                                        BorderThickness="2"
-                                        Background="{StaticResource BorderBrush}">
-                                    <TextBlock Foreground="White">
-                                        <TextBlock.Text>
-                                            <MultiBinding StringFormat="{}{0} ({1})">
-                                                <Binding Path="Name"/>
-                                                <Binding Path="ItemCount"/>
-                                            </MultiBinding>
-                                        </TextBlock.Text>
-                                    </TextBlock>
-                                </Border>
-                            </DataTemplate>
+                        <DataTemplate x:Key="ItemTemplate"
+                                      DataType="{x:Type CollectionViewGroup}">
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0} ({1})">
+                                        <Binding Path="Name"/>
+                                        <Binding Path="ItemCount"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
 
-                        </ListView.Resources>
+                    </ListView.Resources>
 
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="{x:Type ListViewItem}">
-                                <Setter Property="Background"
-                                        Value="Transparent"/>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
-                                            <ContentPresenter/>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                                <Setter Property="ContentTemplate" 
-                                       Value="{StaticResource ItemTemplate}" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsSelected" Value="True">
-                                        <Setter Property="ContentTemplate" Value="{StaticResource SelectedTemplate}" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </ListView.ItemContainerStyle>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <Setter Property="ContentTemplate" 
+                                    Value="{StaticResource ItemTemplate}" />
+                            <Setter Property="Padding"
+                                    Value="4"/>
+                            <Setter Property="Margin"
+                                    Value="4"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
 
-                        <ListView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ListView.ItemsPanel>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
 
-                    </ListView>
-
-                </Border>
+                </ListView>
 
 
                 <!--Nodes of type-->
-                <ListView Grid.Row="1"
-                          VerticalAlignment="Stretch"
-                          HorizontalAlignment="Stretch"
-                          ItemsSource="{Binding Source={StaticResource FilteredNodesSource}}">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Node">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate DataType="{x:Type viewModels:NodeViewModel}">
-                                        <TextBlock>
-                                            <TextBlock.Text>
-                                                <MultiBinding Converter="{StaticResource StringsToNotEmptyString}">
-                                                    <Binding Path="Name"/>
-                                                    <Binding Path="Id"/>
-                                                </MultiBinding>
-                                            </TextBlock.Text>
-                                        </TextBlock>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <GridViewColumn Header="Properties count">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate DataType="{x:Type viewModels:NodeViewModel}">
-                                        <TextBlock Text="{Binding Properties.Count}"/>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                        </GridView>
-                    </ListView.View>
+                <Grid Grid.Row="1"
+                      Margin="0 8 0 0">
+
+                    <!--No nodes-->
+                    <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Visibility="{Binding 
+                                    Source={StaticResource FilteredNodesSource}, 
+                                    Converter={StaticResource EnumerableToVisibilityInvertedConverter}}"
+                               Text="{x:Static loc:Strings.NoNodesPerType}"
+                               Foreground="{StaticResource BorderBrush}"
+                               Opacity="0.7"/>
+
+                    <ListView ItemsSource="{Binding Source={StaticResource FilteredNodesSource}}"
+                              Visibility="{Binding 
+                                    Source={StaticResource FilteredNodesSource}, 
+                                    Converter={StaticResource EnumerableToVisibilityConverter}}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Node"
+                                                Width="100">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate DataType="{x:Type viewModels:NodeViewModel}">
+                                            <TextBlock>
+                                                <TextBlock.Text>
+                                                    <MultiBinding Converter="{StaticResource StringsToNotEmptyString}">
+                                                        <Binding Path="Name" />
+                                                        <Binding Path="Id" />
+                                                    </MultiBinding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Properties count"
+                                                Width="Auto">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate DataType="{x:Type viewModels:NodeViewModel}">
+                                            <TextBlock Text="{Binding Properties.Count}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
 
 
-                </ListView>
+                    </ListView>
+                </Grid>
 
             </Grid>
         </Grid>
 
         <!--Buttons-->
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1"
+              Margin="8 8 8 8">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
@@ -200,45 +182,41 @@
                        BasedOn="{StaticResource SkeletonBorder}"/>
             </Grid.Resources>
 
+
             <!--Open file dialog-->
-            <Border  Grid.Column="0"
-                     BorderThickness="0 2 2 0">
-                <Button Command="{Binding Path=OpenFileCommand}"
-                        Style="{StaticResource IconButton}">
-                    <Image Source="../Asserts/Icons/FileOpen.png" 
-                           Stretch="Fill" />
-                </Button>
-            </Border>
+            <Button Grid.Column="0" 
+                    Command="{Binding Path=OpenFileCommand}"
+                    Style="{StaticResource IconButton}">
+                <Image Source="../Asserts/Icons/FileOpen.png" 
+                       Stretch="Fill" />
+            </Button>
 
             <!--Other buttons-->
-            <Border Grid.Column="1"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    BorderThickness="0 2 0 0">
-                <StackPanel Orientation="Horizontal"
-                            Visibility="{Binding 
+            <StackPanel Grid.Column="1"
+                        Orientation="Horizontal"
+                        Margin="16 0 0 0"
+                        Visibility="{Binding 
                                         Path=Nodes,
                                         Converter={StaticResource EnumerableToVisibilityConverter}}">
 
-                    <StackPanel.Resources>
-                        <Style TargetType="Button"
-                               BasedOn="{StaticResource IconButton}">
-                            <Setter Property="Margin"
-                                    Value="0 0 8 0"/>
-                        </Style>
-                    </StackPanel.Resources>
+                <StackPanel.Resources>
+                    <Style TargetType="Button"
+                           BasedOn="{StaticResource IconButton}">
+                        <Setter Property="Margin"
+                                Value="0 0 8 0"/>
+                    </Style>
+                </StackPanel.Resources>
 
-                    <Button>
-                        <Image Source="../Asserts/Icons/Settings.png" />
-                    </Button>
-                    <Button>
-                        <Image Source="../Asserts/Icons/Compare.png" />
-                    </Button>
-                    <Button>
-                        <Image Source="../Asserts/Icons/CsvExport.png" />
-                    </Button>
-                </StackPanel>
-            </Border>
+                <Button>
+                    <Image Source="../Asserts/Icons/Settings.png" />
+                </Button>
+                <Button>
+                    <Image Source="../Asserts/Icons/Compare.png" />
+                </Button>
+                <Button>
+                    <Image Source="../Asserts/Icons/CsvExport.png" />
+                </Button>
+            </StackPanel>
         </Grid>
 
 
