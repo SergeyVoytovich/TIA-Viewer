@@ -61,6 +61,15 @@ namespace TiaViewer.Presentation.Wpf.Asserts.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Node.
+        /// </summary>
+        public static string NodeHeader {
+            get {
+                return ResourceManager.GetString("NodeHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No nodes found. Please open a file to show nodes..
         /// </summary>
         public static string NoNodes {
@@ -75,6 +84,15 @@ namespace TiaViewer.Presentation.Wpf.Asserts.Localization {
         public static string NoNodesPerType {
             get {
                 return ResourceManager.GetString("NoNodesPerType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Properties count.
+        /// </summary>
+        public static string PropertiesCountHeader {
+            get {
+                return ResourceManager.GetString("PropertiesCountHeader", resourceCulture);
             }
         }
         

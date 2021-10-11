@@ -135,7 +135,7 @@
                                     Converter={StaticResource EnumerableToVisibilityConverter}}">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Node"
+                                <GridViewColumn Header="{x:Static loc:Strings.NodeHeader}"
                                                 Width="100">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate DataType="{x:Type viewModels:NodeViewModel}">
@@ -151,7 +151,7 @@
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
 
-                                <GridViewColumn Header="Properties count"
+                                <GridViewColumn Header="{x:Static loc:Strings.PropertiesCountHeader}"
                                                 Width="Auto">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate DataType="{x:Type viewModels:NodeViewModel}">
