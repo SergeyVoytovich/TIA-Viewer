@@ -30,10 +30,10 @@ namespace TiaViewer.Presentation.Wpf.ViewModels
         /// Initialized new instance
         /// </summary>
         /// <param name="environment">View model environment</param>
-        protected ViewModelBase(ViewModelEnvironment environment)
+        protected ViewModelBase(IViewModelEnvironment environment)
         {
-            Application = environment?.Application ?? throw new ArgumentNullException(nameof(ViewModelEnvironment.Application));
-            Services = environment.Services ?? throw new ArgumentNullException(nameof(ViewModelEnvironment.Services));
+            Application = environment?.Application ?? throw new ArgumentNullException(nameof(IViewModelEnvironment.Application));
+            Services = environment.Services ?? throw new ArgumentNullException(nameof(IViewModelEnvironment.Services));
         }
 
         #endregion

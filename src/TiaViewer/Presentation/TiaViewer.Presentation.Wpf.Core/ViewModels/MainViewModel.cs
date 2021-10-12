@@ -39,7 +39,7 @@ namespace TiaViewer.Presentation.Wpf.ViewModels
         /// Initialized new instance
         /// </summary>
         /// <param name="environment">View model environment</param>
-        public MainViewModel(ViewModelEnvironment environment) : base(environment)
+        public MainViewModel(IViewModelEnvironment environment) : base(environment)
         {
             OpenFileCommand = new AsyncCommand(OpenFileAsync);
         }
@@ -55,13 +55,13 @@ namespace TiaViewer.Presentation.Wpf.ViewModels
         /// <returns>Task</returns>
         internal virtual async Task OpenFileAsync()
         {
-            if (!(Services.FileDialog.Show(out var file)) || string.IsNullOrWhiteSpace(file))
+            if (!Services.FileDialog.Show(out var file) || string.IsNullOrWhiteSpace(file))
             {
                 return;
             }
 
             SelectedFile = Path.GetFileName(file);
-            await LoadNodes(file);
+            await LoadNodesAsync(file);
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace TiaViewer.Presentation.Wpf.ViewModels
         /// </summary>
         /// <param name="file">Source file path</param>
         /// <returns>Task</returns>
-        internal virtual async Task LoadNodes(string file)
+        internal virtual async Task LoadNodesAsync(string file)
         {
             var nodes = await Application.GetNodesAsync(file);
             DisplayNodes(nodes);

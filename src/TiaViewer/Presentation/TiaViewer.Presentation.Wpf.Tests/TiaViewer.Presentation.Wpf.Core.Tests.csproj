@@ -27,4 +27,8 @@
     <ProjectReference Include="..\TiaViewer.Presentation.Wpf.Core\TiaViewer.Presentation.Wpf.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Mocks\" />
+  </ItemGroup>
+
 </Project>

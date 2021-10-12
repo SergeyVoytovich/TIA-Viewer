@@ -8,7 +8,7 @@ namespace TiaViewer.Presentation.Wpf.ViewModels
     /// View model environment
     /// </summary>
     /// <remarks>Provided all models, services and other dependencies for view models</remarks>
-    public class ViewModelEnvironment
+    public class ViewModelEnvironment : IViewModelEnvironment
     {
         #region Properties
 
